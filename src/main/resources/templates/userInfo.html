@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>User Info</title>
+</head>
+<h1 th:inline="text">Information about user - [[${#httpServletRequest.remoteUser}]]!</h1>
+<body>
+<div>
+    <label>Id:</label>
+    <span th:text="${currentUser.getId()}"/>
+    <br/>
+    <label>Username:</label>
+    <span th:text="${currentUser.getUsername()}"/>
+    <br/>
+    <label>FirstName:</label>
+    <span th:text="${currentUser.getFirstName()}"/>
+    <br/>
+    <label>LastName:</label>
+    <span th:text="${currentUser.getLastName()}"/>
+    <br/>
+    <label>Email:</label>
+    <span th:text="${currentUser.getEmail()}"/>
+    <br/>
+    <label>Roles:</label>
+    <span th:text="${currentUser.getAuthorities()}"/>
+    <br/>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+</body>
+</html>
