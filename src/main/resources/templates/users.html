@@ -153,9 +153,11 @@
                                                                     <select multiple class="form-control" name="roles"
                                                                             id="roles" size="2"
                                                                             th:value="${user.roles}">
-                                                                        <option th:each="role : ${currentUser.roles}"
-                                                                                th:value="${role.getId()}"
-                                                                                th:text="${role.getAuthority()}"/>
+                                                                        <option th:each="role : ${roles}"
+                                                                                th:value="${role.id}"
+                                                                                th:text="${role.getAuthority()}"
+                                                                                th:selected="${user.roles != null
+                                                                                && user.roles.contains(role)}"/>
                                                                     </select>
                                                                 </div>
                                                                 <br/>
